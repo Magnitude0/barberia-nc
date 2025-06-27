@@ -27,27 +27,27 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Dirección',
+      title: t('addressTitle'),
       content: t('address'),
-      subtitle: 'Quilmes Centro, Buenos Aires'
+      subtitle: t('addressSubtitle')
     },
     {
       icon: Phone,
-      title: 'Teléfono',
+      title: t('phoneTitle'),
       content: '+54 9 11 2345-6789',
-      subtitle: 'También disponible por WhatsApp'
+      subtitle: t('phoneSubtitle')
     },
     {
       icon: Clock,
-      title: 'Horarios',
-      content: 'Lun - Sáb: 9:00 - 20:00',
-      subtitle: 'Domingos: 10:00 - 18:00'
+      title: t('scheduleTitle'),
+      content: t('scheduleContent'),
+      subtitle: t('scheduleSubtitle')
     },
     {
       icon: Instagram,
-      title: 'Redes Sociales',
+      title: t('socialMediaTitle'),
       content: '@labarberainc',
-      subtitle: 'Síguenos para ver nuestro trabajo'
+      subtitle: t('socialMediaSubtitle')
     }
   ];
 
@@ -58,7 +58,7 @@ const Contact = () => {
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&h=800"
-            alt="Interior de La Barbería NC - contacta con nosotros"
+            alt={t('shopInterior')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/60"></div>
@@ -68,7 +68,7 @@ const Contact = () => {
             {t('contactTitle')}
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-            Estamos aquí para ayudarte. Reserva tu cita o consulta sobre nuestros servicios.
+            {t('contactSubtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -122,62 +122,62 @@ const Contact = () => {
           {/* Contact Form */}
           <div>
             <h2 className="text-3xl font-oswald font-bold text-white mb-8">
-              Envíanos un mensaje
+              {t('sendUsMessage')}
             </h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-white font-semibold mb-2">
-                    Nombre
+                    {t('name')}
                   </label>
                   <Input
                     type="text"
                     className="bg-barberia-black border-barberia-grey-light text-white"
-                    placeholder="Tu nombre"
+                    placeholder={t('yourName')}
                   />
                 </div>
                 <div>
                   <label className="block text-white font-semibold mb-2">
-                    Teléfono
+                    {t('phone')}
                   </label>
                   <Input
                     type="tel"
                     className="bg-barberia-black border-barberia-grey-light text-white"
-                    placeholder="Tu teléfono"
+                    placeholder={t('yourPhone')}
                   />
                 </div>
               </div>
               
               <div>
                 <label className="block text-white font-semibold mb-2">
-                  Email
+                  {t('email')}
                 </label>
                 <Input
                   type="email"
                   className="bg-barberia-black border-barberia-grey-light text-white"
-                  placeholder="tu@email.com"
+                  placeholder={t('yourEmail')}
                 />
               </div>
               
               <div>
                 <label className="block text-white font-semibold mb-2">
-                  Servicio de interés
+                  {t('serviceInterest')}
                 </label>
                 <Input
                   type="text"
                   className="bg-barberia-black border-barberia-grey-light text-white"
-                  placeholder="Corte, Color, Academia, etc."
+                  placeholder={t('serviceInterestPlaceholder')}
                 />
               </div>
               
               <div>
                 <label className="block text-white font-semibold mb-2">
-                  Mensaje
+                  {t('message')}
                 </label>
                 <Textarea
                   className="bg-barberia-black border-barberia-grey-light text-white"
-                  placeholder="Cuéntanos cómo podemos ayudarte..."
+                  placeholder={t('messagePlaceholder')}
                   rows={4}
                 />
               </div>
@@ -187,7 +187,7 @@ const Contact = () => {
                 size="lg"
                 className="w-full bg-barberia-red hover:bg-barberia-red-dark text-white font-oswald text-lg py-6"
               >
-                Enviar Mensaje
+                {t('sendMessage')}
               </Button>
             </form>
           </div>
@@ -195,14 +195,14 @@ const Contact = () => {
           {/* Location & Shop Images */}
           <div>
             <h2 className="text-3xl font-oswald font-bold text-white mb-8">
-              Nuestra Ubicación
+              {t('ourLocation')}
             </h2>
             
             {/* Shop Exterior */}
             <div className="aspect-video rounded-lg overflow-hidden border border-barberia-grey-light mb-6">
               <img 
                 src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&h=600"
-                alt="Fachada de La Barbería NC en Brown 692, Quilmes Centro"
+                alt={t('shopExterior')}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -211,21 +211,21 @@ const Contact = () => {
             <div className="aspect-video bg-barberia-black rounded-lg border border-barberia-grey-light flex items-center justify-center mb-6">
               <div className="text-center text-gray-400">
                 <MapPin className="w-16 h-16 mx-auto mb-4" />
-                <p>Mapa de Google</p>
-                <p className="text-sm mt-2">Brown 692, Quilmes Centro</p>
+                <p>{t('googleMap')}</p>
+                <p className="text-sm mt-2">{t('address')}</p>
               </div>
             </div>
             
             <Card className="bg-barberia-black border-barberia-grey-light">
               <CardContent className="p-6">
                 <h3 className="text-lg font-oswald font-semibold text-white mb-4">
-                  ¿Cómo llegar?
+                  {t('howToGetHere')}
                 </h3>
                 <ul className="space-y-2 text-gray-300">
-                  <li>• A 2 cuadras de la estación Quilmes</li>
-                  <li>• Múltiples líneas de colectivo</li>
-                  <li>• Estacionamiento disponible en la zona</li>
-                  <li>• Fácil acceso desde autopista</li>
+                  <li>{t('stationBlocks')}</li>
+                  <li>{t('multipleBusLines')}</li>
+                  <li>{t('parkingAvailable')}</li>
+                  <li>{t('easyHighwayAccess')}</li>
                 </ul>
               </CardContent>
             </Card>
@@ -237,7 +237,7 @@ const Contact = () => {
       <section className="section-padding bg-barberia-black">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-oswald font-bold text-center text-white mb-12">
-            Síguenos en Instagram
+            {t('followInstagram')}
           </h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -274,10 +274,10 @@ const Contact = () => {
       <section className="section-padding bg-barberia-grey">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-oswald font-bold text-white mb-6">
-            ¿Listo para tu próximo corte?
+            {t('readyNextCut')}
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Reserva tu cita ahora y experimenta el mejor servicio de barbería en Quilmes.
+            {t('readyNextCutDesc')}
           </p>
           <Button
             onClick={handleWhatsApp}
@@ -285,7 +285,7 @@ const Contact = () => {
             className="bg-barberia-red hover:bg-barberia-red-dark text-white font-oswald text-lg px-8 py-6"
           >
             <MessageCircle className="w-5 h-5 mr-2" />
-            Reservar por WhatsApp
+            {t('bookWhatsApp')}
           </Button>
         </div>
       </section>
