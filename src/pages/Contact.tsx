@@ -54,8 +54,16 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero-gradient py-24">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="hero-gradient py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&h=800"
+            alt="Interior de La Barbería NC - contacta con nosotros"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-oswald font-bold text-white mb-6">
             {t('contactTitle')}
           </h1>
@@ -108,7 +116,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form & Map */}
+      {/* Contact Form & Location */}
       <section className="section-padding bg-barberia-grey">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
@@ -184,12 +192,22 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Map */}
+          {/* Location & Shop Images */}
           <div>
             <h2 className="text-3xl font-oswald font-bold text-white mb-8">
               Nuestra Ubicación
             </h2>
             
+            {/* Shop Exterior */}
+            <div className="aspect-video rounded-lg overflow-hidden border border-barberia-grey-light mb-6">
+              <img 
+                src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&h=600"
+                alt="Fachada de La Barbería NC en Brown 692, Quilmes Centro"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Map Placeholder */}
             <div className="aspect-video bg-barberia-black rounded-lg border border-barberia-grey-light flex items-center justify-center mb-6">
               <div className="text-center text-gray-400">
                 <MapPin className="w-16 h-16 mx-auto mb-4" />
@@ -215,8 +233,45 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Instagram Gallery Preview */}
       <section className="section-padding bg-barberia-black">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-oswald font-bold text-center text-white mb-12">
+            Síguenos en Instagram
+          </h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {[
+              'https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=300&h=300',
+              'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=300&h=300',
+              'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=300&h=300',
+              'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=300&h=300'
+            ].map((image, index) => (
+              <div key={index} className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light hover-scale cursor-pointer">
+                <img 
+                  src={image}
+                  alt={`Post de Instagram de La Barbería NC - trabajo ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Button
+              onClick={handleInstagram}
+              size="lg"
+              className="bg-barberia-red hover:bg-barberia-red-dark text-white font-oswald text-lg px-8 py-6"
+            >
+              <Instagram className="w-5 h-5 mr-2" />
+              @labarberainc
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-barberia-grey">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-oswald font-bold text-white mb-6">
             ¿Listo para tu próximo corte?

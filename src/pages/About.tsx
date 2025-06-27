@@ -33,7 +33,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Main About Section */}
+      {/* Main About Section with Portrait */}
       <section className="section-padding bg-barberia-black">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -64,18 +64,69 @@ const About = () => {
           </div>
           
           <div className="relative">
-            <div className="aspect-square bg-barberia-grey rounded-lg border border-barberia-grey-light flex items-center justify-center">
-              <div className="text-center text-gray-400">
-                <Users className="w-16 h-16 mx-auto mb-4" />
-                <p>Foto de Nicolás Centurión</p>
+            <div className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light">
+              <img 
+                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&h=600"
+                alt="Nicolás Centurión, fundador y maestro barbero de La Barbería NC"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 bg-barberia-red p-4 rounded-lg">
+              <Award className="w-8 h-8 text-white" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="section-padding bg-barberia-grey">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-oswald font-bold text-center text-white mb-12">
+            Nuestro Equipo
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center">
+              <div className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400"
+                  alt="Barbero especialista en cortes clásicos"
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <h3 className="text-xl font-oswald text-white mb-2">Especialista Senior</h3>
+              <p className="text-gray-300">Cortes clásicos y modernos</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=400&h=400"
+                  alt="Especialista en color y tratamientos capilares"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-oswald text-white mb-2">Colorista Experto</h3>
+              <p className="text-gray-300">Color profesional y tratamientos</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&h=400"
+                  alt="Instructor de la Academia NC"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-oswald text-white mb-2">Instructor Academia</h3>
+              <p className="text-gray-300">Educación y técnicas avanzadas</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-barberia-grey">
+      <section className="section-padding bg-barberia-black">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-oswald font-bold text-center text-white mb-12">
             Nuestra Trayectoria
@@ -83,7 +134,7 @@ const About = () => {
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <Card key={index} className="bg-barberia-black border-barberia-grey-light text-center hover-scale">
+              <Card key={index} className="bg-barberia-grey border-barberia-grey-light text-center hover-scale">
                 <CardContent className="p-6">
                   <stat.icon className="w-12 h-12 text-barberia-red mx-auto mb-4" />
                   <div className="text-3xl font-oswald font-bold text-white mb-2">
@@ -99,22 +150,34 @@ const About = () => {
         </div>
       </section>
 
-      {/* Vision Section */}
-      <section className="section-padding bg-barberia-black">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-oswald font-bold text-white mb-8">
-            Nuestra Visión
-          </h2>
-          <p className="text-xl text-gray-300 leading-relaxed mb-8">
-            En La Barbería NC creemos que cada corte es una obra de arte. Nuestro compromiso es brindar 
-            un servicio excepcional, combinando técnicas tradicionales con las últimas tendencias en 
-            barbería y color profesional.
-          </p>
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Más que una barbería, somos un espacio donde los hombres pueden relajarse, renovar su estilo 
-            y sentirse seguros de su imagen. También formamos a la próxima generación de barberos 
-            profesionales a través de nuestra academia especializada.
-          </p>
+      {/* Vision Section with Workshop Image */}
+      <section className="section-padding bg-barberia-grey">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl font-oswald font-bold text-white mb-8">
+              Nuestra Visión
+            </h2>
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
+              En La Barbería NC creemos que cada corte es una obra de arte. Nuestro compromiso es brindar 
+              un servicio excepcional, combinando técnicas tradicionales con las últimas tendencias en 
+              barbería y color profesional.
+            </p>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Más que una barbería, somos un espacio donde los hombres pueden relajarse, renovar su estilo 
+              y sentirse seguros de su imagen. También formamos a la próxima generación de barberos 
+              profesionales a través de nuestra academia especializada.
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="aspect-video rounded-lg overflow-hidden border border-barberia-grey-light">
+              <img 
+                src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&h=600"
+                alt="Interior de La Barbería NC mostrando el ambiente profesional y acogedor"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { GraduationCap, BookOpen, Users, Award, Clock, CheckCircle } from 'lucide-react';
+import { GraduationCap, BookOpen, Users, Award, Clock, CheckCircle, Play } from 'lucide-react';
 
 const Academy = () => {
   const { t } = useLanguage();
@@ -17,6 +17,7 @@ const Academy = () => {
       title: t('anatomy'),
       duration: '4 semanas',
       description: 'Fundamentos de anatomía capilar y tricología profesional',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=400&h=300',
       modules: [
         'Estructura del cabello',
         'Tipos de cuero cabelludo',
@@ -28,6 +29,7 @@ const Academy = () => {
       title: t('visagism'),
       duration: '3 semanas',
       description: 'Arte de adaptar cortes según la forma del rostro y personalidad',
+      image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=400&h=300',
       modules: [
         'Análisis facial',
         'Geometría del rostro',
@@ -39,6 +41,7 @@ const Academy = () => {
       title: t('cuttingTechniques'),
       duration: '6 semanas',
       description: 'Técnicas avanzadas de corte y manejo de herramientas',
+      image: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&h=300',
       modules: [
         'Técnicas clásicas',
         'Cortes modernos',
@@ -50,6 +53,7 @@ const Academy = () => {
       title: 'Color Profesional',
       duration: '8 semanas',
       description: 'Especialización en colorimetría y técnicas de color',
+      image: 'https://images.unsplash.com/photo-1560975286-5c4d2e8e5e96?auto=format&fit=crop&w=400&h=300',
       modules: [
         'Teoría del color',
         'Técnicas de aplicación',
@@ -71,8 +75,16 @@ const Academy = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero-gradient py-24">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="hero-gradient py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&h=800"
+            alt="Academia NC - Estudiantes aprendiendo técnicas profesionales de barbería"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <GraduationCap className="w-20 h-20 text-barberia-red mx-auto mb-6" />
           <h1 className="text-5xl md:text-6xl font-oswald font-bold text-white mb-6">
             {t('academyTitle')}
@@ -123,18 +135,75 @@ const Academy = () => {
           </div>
           
           <div className="relative">
-            <div className="aspect-video bg-barberia-grey rounded-lg border border-barberia-grey-light flex items-center justify-center">
-              <div className="text-center text-gray-400">
-                <BookOpen className="w-16 h-16 mx-auto mb-4" />
-                <p>Aula de la Academia</p>
+            <div className="aspect-video rounded-lg overflow-hidden border border-barberia-grey-light">
+              <img 
+                src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&h=600"
+                alt="Aula de la Academia NC con estudiantes practicando técnicas de corte"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Video Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-black/60 p-4 rounded-full cursor-pointer hover:bg-black/80 transition-colors">
+                <Play className="w-12 h-12 text-white ml-1" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Courses */}
+      {/* Instructor Section */}
       <section className="section-padding bg-barberia-grey">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-oswald font-bold text-center text-white mb-12">
+            Nuestros Instructores
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&h=400"
+                  alt="Nicolás Centurión - Director de la Academia NC"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-oswald text-white mb-2">Nicolás Centurión</h3>
+              <p className="text-barberia-red font-semibold mb-2">Director Académico</p>
+              <p className="text-gray-300 text-sm">Especialista en color y técnicas avanzadas</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400"
+                  alt="Instructor especialista en técnicas clásicas"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-oswald text-white mb-2">Instructor Senior</h3>
+              <p className="text-barberia-red font-semibold mb-2">Técnicas Clásicas</p>
+              <p className="text-gray-300 text-sm">10+ años de experiencia en barbería</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="aspect-square rounded-lg overflow-hidden border border-barberia-grey-light mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=400&h=400"
+                  alt="Instructor especialista en visagismo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-oswald text-white mb-2">Especialista</h3>
+              <p className="text-barberia-red font-semibold mb-2">Visagismo</p>
+              <p className="text-gray-300 text-sm">Experto en análisis facial y asesoría</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Courses */}
+      <section className="section-padding bg-barberia-black">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-oswald font-bold text-center text-white mb-12">
             {t('courses')}
@@ -142,17 +211,24 @@ const Academy = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {courses.map((course, index) => (
-              <Card key={index} className="bg-barberia-black border-barberia-grey-light hover-scale">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-4">
-                    <CardTitle className="text-xl font-oswald text-white">
-                      {course.title}
-                    </CardTitle>
-                    <div className="flex items-center text-barberia-red">
+              <Card key={index} className="bg-barberia-grey border-barberia-grey-light hover-scale overflow-hidden">
+                <div className="aspect-video relative">
+                  <img 
+                    src={course.image}
+                    alt={`Curso de ${course.title} - estudiantes en práctica`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 right-4 bg-barberia-red px-3 py-1 rounded-full">
+                    <div className="flex items-center text-white text-sm">
                       <Clock className="w-4 h-4 mr-1" />
-                      <span className="text-sm font-semibold">{course.duration}</span>
+                      <span className="font-semibold">{course.duration}</span>
                     </div>
                   </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-xl font-oswald text-white">
+                    {course.title}
+                  </CardTitle>
                   <p className="text-gray-300">
                     {course.description}
                   </p>
@@ -175,7 +251,7 @@ const Academy = () => {
       </section>
 
       {/* Benefits */}
-      <section className="section-padding bg-barberia-black">
+      <section className="section-padding bg-barberia-grey">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-oswald font-bold text-center text-white mb-12">
             Beneficios de estudiar con nosotros
@@ -193,7 +269,7 @@ const Academy = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-barberia-grey">
+      <section className="section-padding bg-barberia-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-oswald font-bold text-white mb-6">
             Comienza tu carrera profesional hoy
